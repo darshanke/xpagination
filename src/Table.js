@@ -5,6 +5,7 @@ const Table = () => {
   const [originalData, setOriginalData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const numberOfRow = 10;
+  const [loading, setLoading] = useState(true); 
 
   const talbedata = async () => {
     try {
@@ -13,8 +14,11 @@ const Table = () => {
       );
       setOriginalData(response.data);
     } catch (e) {
-      alert("Failed to fetch data. Please try again later.");
+      alert("failed to fetch data");
       console.log("Failed to fetch data", e.message);
+    }
+    finally {
+      setLoading(false); 
     }
   };
 
