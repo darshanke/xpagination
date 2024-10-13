@@ -14,7 +14,7 @@
         setOriginalData(response.data);
       } catch (e) {
         alert('Failed to fetch data. Please try again later.');
-        console.log("Error message", e.message);  
+        console.log("Failed to fetch data", e.message);  
       }
     };
 
@@ -23,11 +23,11 @@
         await talbedata();
       };
       loader();
-    }, []);
+    }, [originalData]);
 
     const startIndex = (currentPage - 1) * numberOfRow;
     const endIndex = startIndex + numberOfRow;
-    const sliceData = originalData && originalData.slice(startIndex, endIndex);
+    const sliceData = originalData>0 && originalData.slice(startIndex, endIndex);
     //   console.log(sliceData);
 
     const totalPages = Math.ceil(originalData.length / numberOfRow);
