@@ -27,7 +27,7 @@
 
     const startIndex = (currentPage - 1) * numberOfRow;
     const endIndex = startIndex + numberOfRow;
-    const sliceData = originalData>0 && originalData.slice(startIndex, endIndex);
+    const sliceData = originalData.length>0 && originalData.slice(startIndex, endIndex);
     //   console.log(sliceData);
 
     const totalPages = Math.ceil(originalData.length / numberOfRow);
@@ -65,7 +65,7 @@
               <th>Role</th>
             </tr>
           </thead>
-          <tbody>
+          {sliceData.length> 0  && <tbody>
             {sliceData.map((item) => (
               <tr style={{ height: "50px" }} key={item.id}>
                 <td>{item.id}</td>
@@ -74,7 +74,7 @@
                 <td>{item.role}</td>
               </tr>
             ))}
-          </tbody>
+          </tbody>}
         </table>
         <div
           style={{
