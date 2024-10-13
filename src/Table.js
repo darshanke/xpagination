@@ -15,7 +15,7 @@ const Table = () => {
       setOriginalData(response.data);
     } catch (e) {
       alert("failed to fetch data");
-      console.log("Failed to fetch data", e.message);
+      console.log("failed to fetch data", e.message);
     }
     finally {
       setLoading(false); 
@@ -82,9 +82,9 @@ const Table = () => {
           </tbody>
         ) : (
           <tbody>
-            <tr>
+            <tr style={{height: '300px'}}>
               <td colSpan="4" style={{ textAlign: "center" }}>
-                No data available
+              failed to fetch data
               </td>
             </tr>
           </tbody>
