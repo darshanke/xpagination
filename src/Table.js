@@ -14,12 +14,11 @@ const Table = () => {
       );
       setOriginalData(response.data);
     } catch (e) {
+      setLoading(false);
       alert("failed to fetch data");
       console.log("failed to fetch data", e.message);
     }
-    finally {
-      setLoading(false); 
-    }
+  
   };
 
   useEffect(() => {
